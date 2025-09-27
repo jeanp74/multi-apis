@@ -2,9 +2,8 @@ FROM node:20-alpine
 ENV NODE_ENV=production
 WORKDIR /app
 
-COPY package.json ./
-# instalacion de dependencias
-RUN npm ci --omit=dev 
+COPY package*.json ./
+RUN npm ci --omit=dev
 
 COPY src ./src
 
