@@ -4,7 +4,7 @@ import users from "./data.json" assert { type: "json" };
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(exprss.jsone());
 
 const PORT = process.env.PORT || 4001;
 const SERVICE = process.env.SERVICE_NAME || "users-api";
