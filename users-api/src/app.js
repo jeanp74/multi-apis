@@ -8,7 +8,7 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 4001;
 
-// Health DB
+// Listado de métodos y rutas
 app.get("/", async (_req, res) => {
   // res.json({
   //   metodos: {
