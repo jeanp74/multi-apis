@@ -7,3 +7,4 @@ az postgres flexible-server db create \
 
 docker compose up --build
 
+https://http.cat/
