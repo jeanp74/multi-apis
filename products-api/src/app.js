@@ -60,7 +60,8 @@ app.get("/", async (_req, res) => {
         "/products": "Listar (SELECT real)",
         "/products/:id": "Obtener productos por id",
         "/tables": "Listar tablas de base de datos",
-        "/health": "Mantén /health si ya lo tenías"
+        "/health": "Mantén /health si ya lo tenías",
+        "/products/with-users": "Listar productos con conteo de usuarios"
       },
       POST: {
         "/products": "Crear producto (name & price son obligatorios)"
