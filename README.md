@@ -32,11 +32,11 @@ Prueba de users api
 Prueba de products api
 [
     {
-        "name": "Laptop Pro 14",
-        "price": 1299.99
+        "name": "PC gamer",
+        "price": 2000.29
     },
     {
-        "name": "Mouse Inalámbrico",
-        "price": 24.50
+        "name": "Monitor",
+        "price": 1500.50
     }
 ]
