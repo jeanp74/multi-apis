@@ -56,7 +56,7 @@ app.get("/", async (_req, res) => {
   res.json({
     metodos: {
       GET: {
-        "/db/health": "Health DB",
+        "/db/health": "Health DB***",
         "/products": "Listar (SELECT real)",
         "/products/:id": "Obtener productos por id",
         "/tables": "Listar tablas de base de datos",
