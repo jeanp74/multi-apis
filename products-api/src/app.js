@@ -72,6 +72,9 @@ app.get("/", async (_req, res) => {
       },
       DELETE: {
         "/products/:id": "Eliminar productos por id"
+      },
+      otra: {
+        "Conectando a BD": process.env.USERS_DATABASE_URL
       }
     }
   });
