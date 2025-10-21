@@ -91,17 +91,38 @@ app.get("/products/:id", async (req, res) => {
 // Crear producto(s)
 app.post("/products", async (req, res) => {
   try {
-    const body = Array.isArray(req.body) ? req.body : [req.body];
-    const invalid = body.filter((x) => !x.name || x.price == null);
-    if (invalid.length > 0)
-      return res.status(400).json({ error: "name & price obligatorios" });
+    // Verificar si el body es válido y no está vacío
+    if (!req.body || (Array.isArray(req.body) && req.body.length === 0)) {
+      return res.status(400).json({ error: "El cuerpo de la solicitud está vacío" });
+    }
 
+    // Convertir a array si viene un solo objeto
+    const body = Array.isArray(req.body) ? req.body : [req.body];
+
+    // Validar campos obligatorios
+    const invalid = body.filter((x) => !x.name || x.price == null);
+    if (invalid.length > 0) {
+      return res.status(400).json({
+        error: "Todos los productos deben tener 'name' y 'price' válidos",
+        invalid
+      });
+    }
+
+    // Insertar productos en MongoDB
     const inserted = await Product.insertMany(body);
-    res.status(201).json(inserted);
+
+    // Responder con confirmación
+    return res.status(201).json({
+      message: `${inserted.length} producto(s) creado(s) correctamente`,
+      data: inserted
+    });
+
   } catch (e) {
-    res.status(500).json({ error: "error creando producto", detail: String(e) });
+    console.error("❌ Error creando producto:", e);
+    res.status(500).json({ error: "Error creando producto", detail: String(e) });
   }
 });
+
 
 // Actualizar producto
 app.put("/products/:id", async (req, res) => {
