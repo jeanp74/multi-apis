@@ -27,3 +27,4 @@ services:
     depends_on:
       - users-api
     restart: unless-stopped
+    
