@@ -44,7 +44,7 @@ app.get("/", (_req, res) => {
   res.json({
     metodos: {
       GET: {
-        "/db/health": "Health DB",
+        "/db/health": "Health DB ***",
         "/products": "Listar productos",
         "/products/:id": "Obtener producto por ID",
         "/health": "Estado del servicio",
