@@ -20,7 +20,8 @@ services:
       - SERVICE_NAME=products-api
       # Compose resuelve por nombre de servicio: http://users-api:4001
       - USERS_API_URL=http://users-api:4001
-      - PRODUCTS_DATABASE_URL=${PRODUCTS_DATABASE_URL}
+      # - PRODUCTS_DATABASE_URL=${PRODUCTS_DATABASE_URL}
+      - PRODUCTS_MONGO_URI=${PRODUCTS_MONGO_URI}
     ports:
       - "4002:4002"
     depends_on:
