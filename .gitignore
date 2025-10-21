@@ -3,3 +3,5 @@ node_modules/
 
 # Ignorar variables de entorno
 .env
+
+parametros clase*.txt
