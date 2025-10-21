@@ -14,8 +14,14 @@ export async function connectMongo() {
   if (!uri) throw new Error("PRODUCTS_MONGO_URI no iniciada");
   // Para Cosmos RU-based, asegúrate de retryWrites=false en la URI
   // Para vCore, el SRV ya trae opciones correctas
-  await mongoose.connect(uri, {
-    serverSelectionTimeoutMS: 8000
-  });
-  console.log("✅ Connected a Mongo (Cosmos DB)");
+  try {
+    await mongoose.connect(uri, {
+      serverSelectionTimeoutMS: 8000,
+      dbName: "shop"            // <- FORZAMOS la DB 'shop'
+    });
+    console.log("✅ Connected a Mongo (Cosmos DB) en DB: shop");
+  } catch (err) {
+    console.error("❌ Error conectando a Mongo:", err);
+    throw err;
+  }
 }
