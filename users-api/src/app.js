@@ -22,52 +22,52 @@ const publicDir = path.join(__dirname, "../public");
 app.use(express.static(publicDir));
 
 // Listado de métodos y rutas
-// app.get("/", async (_req, res) => {
-//   // res.json({
-//   //   metodos: {
-//   //     GET: [
-//   //       {url: "/db/health", hace: "Health DB"},
-//   //       {url: "/users", hace: "Listar (SELECT real)"},
-//   //       {url: "/users/:id", hace: "Obtener usuarios por id"},
-//   //       {url: "/tables", hace: "Listar tablas de base de datos"},
-//   //       {url: "/health", hace: "Mantén /health si ya lo tenías"}
-//   //     ],
-//   //     POST: [
-//   //       {url: "/users", hace: "Crear usuario (name & email son obligatorios)"}
-//   //     ],
-//   //     PUT: [
-//   //       {url: "/users/:id", hace: "Actualizar usuario (name & email son obligatorios)"},
-//   //       {url: "/tables", hace: "Reiniciar tabla"}
-//   //     ],
-//   //     DELETE: [
-//   //       {url: "/users/:id", hace: "Eliminar usuarios por id"}
-//   //     ]
-//   //   }
-//   // });
+app.get("/api", async (_req, res) => {
+  // res.json({
+  //   metodos: {
+  //     GET: [
+  //       {url: "/db/health", hace: "Health DB"},
+  //       {url: "/users", hace: "Listar (SELECT real)"},
+  //       {url: "/users/:id", hace: "Obtener usuarios por id"},
+  //       {url: "/tables", hace: "Listar tablas de base de datos"},
+  //       {url: "/health", hace: "Mantén /health si ya lo tenías"}
+  //     ],
+  //     POST: [
+  //       {url: "/users", hace: "Crear usuario (name & email son obligatorios)"}
+  //     ],
+  //     PUT: [
+  //       {url: "/users/:id", hace: "Actualizar usuario (name & email son obligatorios)"},
+  //       {url: "/tables", hace: "Reiniciar tabla"}
+  //     ],
+  //     DELETE: [
+  //       {url: "/users/:id", hace: "Eliminar usuarios por id"}
+  //     ]
+  //   }
+  // });
 
-//   res.json({
-//     metodos: {
-//       GET: {
-//         "/db/health": "Health DB*",
-//         "/users": "Listar (SELECT real)",
-//         "/users/:id": "Obtener usuarios por id",
-//         "/tables": "Listar tablas de base de datos",
-//         "/health": "Mantén /health si ya lo tenías"
-//       },
-//       POST: {
-//         "/users": "Crear usuario (name & email son obligatorios)"
-//       },
-//       PUT: {
-//         "/users/:id": "Actualizar usuario (name & email son obligatorios)",
-//         "/tables": "Reiniciar tabla"
-//       },
-//       DELETE: {
-//         "/users/:id": "Eliminar usuarios por id"
-//       }
-//     }
-//   });
+  res.json({
+    metodos: {
+      GET: {
+        "/db/health": "Health DB*",
+        "/users": "Listar (SELECT real)",
+        "/users/:id": "Obtener usuarios por id",
+        "/tables": "Listar tablas de base de datos",
+        "/health": "Mantén /health si ya lo tenías"
+      },
+      POST: {
+        "/users": "Crear usuario (name & email son obligatorios)"
+      },
+      PUT: {
+        "/users/:id": "Actualizar usuario (name & email son obligatorios)",
+        "/tables": "Reiniciar tabla"
+      },
+      DELETE: {
+        "/users/:id": "Eliminar usuarios por id"
+      }
+    }
+  });
 
-// });
+});
 
 
 // Health DB

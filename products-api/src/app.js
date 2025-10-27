@@ -4,6 +4,11 @@ import fetch from "node-fetch";
 import mongoose from "mongoose";
 import { connectMongo } from "./db.js";
 
+import path from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -40,7 +45,7 @@ app.get("/products/with-users", async (_req, res) => {
 });
 
 // Documentación
-app.get("/", (_req, res) => {
+app.get("/api", (_req, res) => {
   res.json({
     metodos: {
       GET: {
@@ -170,6 +175,15 @@ app.put("/tables", async (_req, res) => {
 app.get("/health", (_req, res) =>
   res.json({ status: "ok", service: SERVICE })
 );
+
+const publicDir = path.join(__dirname, "../public");
+app.use(express.static(publicDir));
+
+// Dejar SIEMPRE al final:
+app.get("*", (_req, res) => {
+  res.sendFile(path.join(publicDir, "index.html"));
+});
+
 
 app.listen(PORT, () => {
   console.log(`✅ ${SERVICE} escuchando en http://localhost:${PORT}`);
