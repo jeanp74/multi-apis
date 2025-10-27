@@ -4,7 +4,7 @@
   "type": "module",
   "main": "src/index.html",
   "scripts": {
-    "start": "node src/app.js"
+    "start": "node src/index.html"
   },
   "dependencies": {
     "cors": "^2.8.5",
