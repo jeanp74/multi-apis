@@ -40,3 +40,8 @@ Prueba de products api
         "price": 1500.50
     }
 ]
+/////
+
+npm install
+
+docker compose build --no-cache
